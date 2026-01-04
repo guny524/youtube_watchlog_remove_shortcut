@@ -11,6 +11,7 @@ import type { VideoItemData, VideoItemType } from '@/lib/types';
 // Constants for timeouts and delays (ms)
 const MENU_WAIT_TIMEOUT = 100;
 const ANIMATION_DELAY = 30;
+const ERROR_FEEDBACK_DURATION = 1000;
 
 export default defineContentScript({
   matches: ['*://www.youtube.com/*'],
@@ -305,7 +306,7 @@ function showErrorFeedback(element: HTMLElement): void {
 
   setTimeout(() => {
     element.style.outline = originalOutline;
-  }, 1000);
+  }, ERROR_FEEDBACK_DURATION);
 }
 
 /**
