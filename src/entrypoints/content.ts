@@ -62,13 +62,10 @@ function initExtension(): void {
  * Find video item element from any child element
  */
 function findVideoItemElement(element: HTMLElement): HTMLElement | null {
-  const shortsItem = element.closest<HTMLElement>(VIDEO_ITEM_SELECTORS.shorts);
-  if (shortsItem) return shortsItem;
-
-  const regularItem = element.closest<HTMLElement>(VIDEO_ITEM_SELECTORS.regular);
-  if (regularItem) return regularItem;
-
-  return null;
+  return (
+    element.closest<HTMLElement>(VIDEO_ITEM_SELECTORS.shorts) ??
+    element.closest<HTMLElement>(VIDEO_ITEM_SELECTORS.regular)
+  );
 }
 
 /**
