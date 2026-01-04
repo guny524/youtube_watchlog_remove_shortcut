@@ -72,11 +72,9 @@ Upload the ZIP to [Chrome Web Store Developer Dashboard](https://chrome.google.c
 src/
 ├── entrypoints/
 │   ├── content.ts      # Main content script
-│   ├── background.ts   # Service worker
-│   └── popup/          # Extension popup
+│   └── background.ts   # Service worker
 └── lib/
-    ├── types.ts        # Type definitions
-    └── youtube-api.ts  # YouTube API adapter
+    └── types.ts        # Type definitions
 ```
 
 ## License
