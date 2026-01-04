@@ -236,23 +236,19 @@ async function processDeleteQueue(): Promise<void> {
  * Supports two menu structures: yt-list-item-view-model and ytd-menu-service-item-renderer
  */
 function clickDeleteButton(): boolean {
-  // Menu structure 1: yt-list-item-view-model (shorts, yt-lockup-view-model)
-  const menuItems1 = document.querySelectorAll('ytd-popup-container yt-list-item-view-model');
-  for (const item of menuItems1) {
-    const text = item.textContent ?? '';
-    if (VIDEO_ITEM_SELECTORS.deleteMenuTexts.some((p) => text.includes(p))) {
-      (item as HTMLElement).click();
-      return true;
-    }
-  }
+  const menuSelectors = [
+    'ytd-popup-container yt-list-item-view-model',        // shorts, yt-lockup-view-model
+    'ytd-popup-container ytd-menu-service-item-renderer', // ytd-video-renderer
+  ];
 
-  // Menu structure 2: ytd-menu-service-item-renderer (ytd-video-renderer)
-  const menuItems2 = document.querySelectorAll('ytd-popup-container ytd-menu-service-item-renderer');
-  for (const item of menuItems2) {
-    const text = item.textContent ?? '';
-    if (VIDEO_ITEM_SELECTORS.deleteMenuTexts.some((p) => text.includes(p))) {
-      (item as HTMLElement).click();
-      return true;
+  for (const selector of menuSelectors) {
+    const menuItems = document.querySelectorAll(selector);
+    for (const item of menuItems) {
+      const text = item.textContent ?? '';
+      if (VIDEO_ITEM_SELECTORS.deleteMenuTexts.some((p) => text.includes(p))) {
+        (item as HTMLElement).click();
+        return true;
+      }
     }
   }
 
