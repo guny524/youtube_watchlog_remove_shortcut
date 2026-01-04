@@ -1,0 +1,34 @@
+test-results
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+.output
+stats.html
+stats-*.json
+.wxt
+web-ext.config.ts
+
+# Personal docs (not for public repo)
+CHROME_WEBSTORE_UPLOAD.md
+
+# Test profile (persistent browser session for e2e tests)
+.test-profile/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
